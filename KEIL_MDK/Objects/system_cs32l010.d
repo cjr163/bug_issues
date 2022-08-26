@@ -1,0 +1,11 @@
+.\objects\system_cs32l010.o: ..\CMSIS\Device\CS32L010\Source\system_cs32l010.c
+.\objects\system_cs32l010.o: ..\CMSIS\Device\CS32L010\Include\cs32l010.h
+.\objects\system_cs32l010.o: ..\CMSIS\Include\core_cm0plus.h
+.\objects\system_cs32l010.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\system_cs32l010.o: ..\CMSIS\Include\core_cmInstr.h
+.\objects\system_cs32l010.o: ..\CMSIS\Include\cmsis_armcc.h
+.\objects\system_cs32l010.o: ..\CMSIS\Include\core_cmFunc.h
+.\objects\system_cs32l010.o: ..\CMSIS\Device\CS32L010\Include\system_cs32l010.h
+.\objects\system_cs32l010.o: ..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h
+.\objects\system_cs32l010.o: ..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h
+.\objects\system_cs32l010.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -1,0 +1,28 @@
+--cpu Cortex-M0+
+".\objects\system_cs32l010.o"
+".\objects\startup_cs32l010.o"
+".\objects\cs32l010_hal.o"
+".\objects\cs32l010_hal_adc.o"
+".\objects\cs32l010_hal_awk.o"
+".\objects\cs32l010_hal_basetim.o"
+".\objects\cs32l010_hal_clktrim.o"
+".\objects\cs32l010_hal_cortex.o"
+".\objects\cs32l010_hal_crc.o"
+".\objects\cs32l010_hal_gpio.o"
+".\objects\cs32l010_hal_i2c.o"
+".\objects\cs32l010_hal_owire.o"
+".\objects\cs32l010_hal_pwr.o"
+".\objects\cs32l010_hal_rcc.o"
+".\objects\cs32l010_hal_tim.o"
+".\objects\cs32l010_hal_uart.o"
+".\objects\ccc_i2c.o"
+".\objects\ccc_i2c_copy_22.o"
+".\objects\sw3516h.o"
+".\objects\sw3516h_user.o"
+".\objects\main.o"
+".\objects\cs32l010_it.o"
+".\objects\cs32l010_hal_msp.o"
+--strict --scatter ".\Objects\821008.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\821008.map" -o .\Objects\821008.axf

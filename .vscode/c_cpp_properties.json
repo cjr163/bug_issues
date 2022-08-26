@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/CMSIS/Device/CS32L010/Include/*",
+                "${workspaceFolder}/CMSIS/Include/*",
+                "${workspaceFolder}/CS32L010_HAL_Driver/Inc/*",
+
+                "D:/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/"
+                //"C:/Keil_v5/ARM/ARMCC/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "CJ_VScode",
+                "__CC_ARM",
+                "__GNUC__"
+            ],
+            "cStandard": "c99",
+            "cppStandard": "c++98",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

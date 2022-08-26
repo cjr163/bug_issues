@@ -1,0 +1,847 @@
+Dependencies for Project '821008', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060750::V5.06 update 6 (build 750)::ARMCC
+F (..\CMSIS\Device\CS32L010\Source\system_cs32l010.c)(0x5F85643E)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\system_cs32l010.o --omf_browse .\objects\system_cs32l010.crf --depend .\objects\system_cs32l010.d)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+F (..\CMSIS\Device\CS32L010\Source\ARM\startup_cs32l010.s)(0x5F85643E)(--cpu Cortex-M0+ -g --apcs=interwork -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 529"--list .\listings\startup_cs32l010.lst --xref -o .\objects\startup_cs32l010.o --depend .\objects\startup_cs32l010.d)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal.c)(0x63048F4E)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal.o --omf_browse .\objects\cs32l010_hal.crf --depend .\objects\cs32l010_hal.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_adc.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_adc.o --omf_browse .\objects\cs32l010_hal_adc.crf --depend .\objects\cs32l010_hal_adc.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_awk.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_awk.o --omf_browse .\objects\cs32l010_hal_awk.crf --depend .\objects\cs32l010_hal_awk.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_basetim.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_basetim.o --omf_browse .\objects\cs32l010_hal_basetim.crf --depend .\objects\cs32l010_hal_basetim.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_clktrim.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_clktrim.o --omf_browse .\objects\cs32l010_hal_clktrim.crf --depend .\objects\cs32l010_hal_clktrim.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_cortex.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_cortex.o --omf_browse .\objects\cs32l010_hal_cortex.crf --depend .\objects\cs32l010_hal_cortex.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_crc.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_crc.o --omf_browse .\objects\cs32l010_hal_crc.crf --depend .\objects\cs32l010_hal_crc.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_gpio.c)(0x630456F7)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_gpio.o --omf_browse .\objects\cs32l010_hal_gpio.crf --depend .\objects\cs32l010_hal_gpio.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_i2c.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_i2c.o --omf_browse .\objects\cs32l010_hal_i2c.crf --depend .\objects\cs32l010_hal_i2c.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_owire.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_owire.o --omf_browse .\objects\cs32l010_hal_owire.crf --depend .\objects\cs32l010_hal_owire.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_pwr.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_pwr.o --omf_browse .\objects\cs32l010_hal_pwr.crf --depend .\objects\cs32l010_hal_pwr.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_rcc.c)(0x63034DD9)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_rcc.o --omf_browse .\objects\cs32l010_hal_rcc.crf --depend .\objects\cs32l010_hal_rcc.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_tim.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_tim.o --omf_browse .\objects\cs32l010_hal_tim.crf --depend .\objects\cs32l010_hal_tim.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\CS32L010_HAL_Driver\Src\cs32l010_hal_uart.c)(0x5F856440)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_uart.o --omf_browse .\objects\cs32l010_hal_uart.crf --depend .\objects\cs32l010_hal_uart.d)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+F (..\APP\CCC_i2c.c)(0x630493E8)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\ccc_i2c.o --omf_browse .\objects\ccc_i2c.crf --depend .\objects\ccc_i2c.d)
+I (..\..\821008__Source_Code\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\..\821008__Source_Code\cs32l010_it.h)(0x5DC8F338)
+I (..\..\821008__Source_Code\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\APP\CCC_i2c_COPY_22.c)(0x630493EB)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\ccc_i2c_copy_22.o --omf_browse .\objects\ccc_i2c_copy_22.crf --depend .\objects\ccc_i2c_copy_22.d)
+I (..\..\821008__Source_Code\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\..\821008__Source_Code\cs32l010_it.h)(0x5DC8F338)
+I (..\..\821008__Source_Code\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\APP\SW3516H.C)(0x630839E7)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\sw3516h.o --omf_browse .\objects\sw3516h.crf --depend .\objects\sw3516h.d)
+I (..\..\821008__Source_Code\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\..\821008__Source_Code\cs32l010_it.h)(0x5DC8F338)
+I (..\..\821008__Source_Code\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\APP\SW3516H_User.C)(0x63075E18)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\sw3516h_user.o --omf_browse .\objects\sw3516h_user.crf --depend .\objects\sw3516h_user.d)
+I (..\..\821008__Source_Code\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\..\821008__Source_Code\cs32l010_it.h)(0x5DC8F338)
+I (..\..\821008__Source_Code\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\main.c)(0x63084282)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\cs32l010_it.h)(0x5DC8F338)
+I (..\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\cs32l010_it.c)(0x630472F3)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_it.o --omf_browse .\objects\cs32l010_it.crf --depend .\objects\cs32l010_it.d)
+I (..\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\cs32l010_it.h)(0x5DC8F338)
+I (..\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
+F (..\cs32l010_hal_msp.c)(0x630430E5)(--c99 --gnu -c --cpu Cortex-M0+ -g -O0 --apcs=interwork --split_sections -I ..\CMSIS\Device\CS32L010\Include -I ..\CMSIS\Include -I ..\CS32L010_HAL_Driver\Inc -I ..\..\821008__Source_Code -I ..\SYSTEM -I ..\APP -I ..\Lib --diag_suppress 1295 -I.\RTE\_Target_1-IC:\Users\Administrator\AppData\Local\Arm\Packs\CHIPSEA\CS32L010_DFP\1.0.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="529"-o .\objects\cs32l010_hal_msp.o --omf_browse .\objects\cs32l010_hal_msp.crf --depend .\objects\cs32l010_hal_msp.d)
+I (..\all_head.h)(0x6306E500)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal.h)(0x63043406)
+I (..\..\821008__Source_Code\cs32l010_hal_conf.h)(0x63034FD3)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_syscon.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_def.h)(0x5F85643F)
+I (..\CMSIS\Device\CS32L010\Include\cs32l010.h)(0x5F85643E)
+I (..\CMSIS\Include\core_cm0plus.h)(0x5D9BFDC4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x62D0DF8D)
+I (..\CMSIS\Include\core_cmInstr.h)(0x5D6F4D22)
+I (..\CMSIS\Include\cmsis_armcc.h)(0x5D6F4D22)
+I (..\CMSIS\Include\core_cmFunc.h)(0x5D6F4D22)
+I (..\CMSIS\Device\CS32L010\Include\system_cs32l010.h)(0x5F85643E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5D9AD21A)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rcc.h)(0x63034CC8)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_gpio.h)(0x63035713)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_cortex.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_adc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_crc.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_flash.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_i2c.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_iwdg.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pwr.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_rtc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_spi.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_tim.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_basetim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lptim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_uart.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lpuart.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_wwdg.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_beep.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_awk.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_lvd.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_vc.h)(0x5F856440)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_clktrim.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_pca.h)(0x5F85643F)
+I (..\CS32L010_HAL_Driver\Inc\cs32l010_hal_owire.h)(0x5F85643F)
+I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5D9AD218)
+I (..\cs32l010_it.h)(0x5DC8F338)
+I (..\main.h)(0x63047515)
+I (..\APP\SW3516H.h)(0x63083A0E)
+I (..\APP\SW3516H_User.h)(0x630749EA)
+I (..\APP\CCC_i2c_COPY_22.h)(0x63047E50)
+I (..\APP\CCC_i2c.h)(0x63047EC8)
