@@ -1,17 +1,14 @@
 /*================================================================================
   @Author: ChenJiaRan
   @Date: 2022-06-28 15:59:48
-  @LastEditTime  2022-08-26 11:12
+  @LastEditTime  2022-08-26 16:41
   @LastEditors  ChenJiaRan
   @Description: 智融SW3516
   @Version: V1.0
 注意 :未定义的寄存器或 bit 不能被改写 ,先读后写
-0xBC: 反的? 待测
 ================================================================================*/
 #ifndef _SW3516H_H_
 #define _SW3516H_H_
-
-//#include "ft61f02x_IIC.h"
 
 #define SW3516H_I2C_ADDR 0x3C                          // SW3516设备ID  前7位
 #define SW3516H_WriteAddR (SW3516H_I2C_ADDR << 1)      // 0x78 写地址 8bit
@@ -496,7 +493,7 @@ typedef union
     struct
     {
         u8 : 3;
-        u8 PortC_Empty_Check : 1; // C 口空载检测  @param 0: 使能  @param 1: 不使能!!!
+        u8 PortC_Empty_Check : 1; // C 口空载检测  @param 0: 使能  @param 1: 不使能!!! (默认1不使能,所有案子都要写0使能)
         u8 : 2;
         /*
           @brief    Peak 超载功能
@@ -618,9 +615,11 @@ void sw3516_Set_Mode(bool force_edit);
 
 void sw3516_Change_PD_1();
 bool sw3516_Change_PD_2(bool force_edit);
+void sw3516_Change_PD_3(bool force_edit);
+
 void sw3516_Except_PD_W(bool force_edit);
 void sw3516_Except_PD_V(bool force_edit);
-
+void sw3516_set_PortC_Empty_Check(bool force_edit);
 void sw3516_Enable__SCP(bool force_edit);
 void sw3516_Both_CUR_LIM(bool force_edit);
 

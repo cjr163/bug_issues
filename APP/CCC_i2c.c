@@ -17,32 +17,38 @@
 
 static void Set_SDA_In()
 {
-    GPIO_InitTypeDef gpioinitstruct;
-    gpioinitstruct.Pin = GPIO_PIN_2;
-    gpioinitstruct.Mode = GPIO_MODE_INPUT;
-    gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    gpioinitstruct.Pull = GPIO_PULLUP;
-    HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+    // GPIO_InitTypeDef gpioinitstruct;
+    // gpioinitstruct.Pin = GPIO_PIN_2;
+    // gpioinitstruct.Mode = GPIO_MODE_INPUT;
+    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
+    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
+    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
+    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
+    // gpioinitstruct.Pull = GPIO_PULLUP;
+    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+
+    GPIOD->DIRCR &= ~(GPIO_PIN_2);                     // GPIO_MODE_INPUT
+    GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)); // GPIO_PULLUP 3-1=2
 }
 static void Set_SDA_Out()
 {
-    GPIO_InitTypeDef gpioinitstruct;
-    gpioinitstruct.Pin = GPIO_PIN_2;
-    gpioinitstruct.Mode = GPIO_MODE_OUTPUT;
-    gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    gpioinitstruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+    // GPIO_InitTypeDef gpioinitstruct;
+    // gpioinitstruct.Pin = GPIO_PIN_2;
+    // gpioinitstruct.Mode = GPIO_MODE_OUTPUT;
+    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
+    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
+    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
+    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
+    // gpioinitstruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+
+    GPIOD->DIRCR |= GPIO_PIN_2;                     // GPIO_MODE_INPUT
+    //GPIOD->PUPDR |= GPIO_PUPDR_PxPUPD0 << (2 * 2U); // GPIO_PULLUP 3-1=2
 }
 
 static void Delay()
 {
-    uint32_t delay = 20;//20=100K 5=200k
+    uint32_t delay = 7; // 20=100K 5=200k
     while (delay-- > 0)
     {
         __NOP();
@@ -99,25 +105,26 @@ void CCC_I2C_Init(void)
 static void CCC_I2C_Start(void)
 {
     I2C_SDA_H;
-    Delay();
+    // Delay();
     I2C_SCL_H;
     Delay();
     I2C_SDA_L;
-    Delay();
-    I2C_SCL_L;
-    Delay();
+    // Delay();
+    // I2C_SCL_L;
+    //  Delay();
 }
 //===============================================
 // I2C协议----结束信号
 //===============================================
 static void CCC_I2C_Stop(void)
 {
+    I2C_SCL_L;
     I2C_SDA_L;
     Delay();
     I2C_SCL_H;
     Delay();
     I2C_SDA_H;
-    Delay();
+    // Delay();
 }
 //===============================================
 // I2C协议----写字节
@@ -126,7 +133,7 @@ static void CCC_I2C_WriteByte(uint8_t data)
 {
     uint8_t R_Count;
 
-    I2C_SDA_H;
+    // I2C_SDA_H;
     for (R_Count = 8; R_Count > 0; R_Count--)
     {
         I2C_SCL_L;
@@ -134,19 +141,18 @@ static void CCC_I2C_WriteByte(uint8_t data)
             I2C_SDA_H;
         else
             I2C_SDA_L;
-        Delay();
+        // Delay();
         I2C_SCL_H;
-        Delay();
+        // Delay();
+        // I2C_SCL_L;
         data <<= 1;
     }
-
-    I2C_SCL_L;
-    Delay();
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
-    // __set_PRIMASK(0);
+    I2C_SDA_H; //省电
+               // __set_PRIMASK(1);
+               // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
+               // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
+               // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
+               // __set_PRIMASK(0);
 
     // I2C_SCL_H;
     // I2C_SCL_L; /////////////////////////////没读取?不检查应答
@@ -167,18 +173,22 @@ static void CCC_I2C_WriteByte(uint8_t data)
 static bool CCC_IIC_WaitAck()
 {
     u8 ucErrTime = 0;
+
+    //  Delay();
+    I2C_SCL_L;
+
+    I2C_SDA_H;
     SET_I2C_SDA_In;
+
     // __set_PRIMASK(1);
     // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
     // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
     // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
     // __set_PRIMASK(0);
 
-    I2C_SDA_H;
-    Delay();
-    // DelayUs(1);
+    // Delay();
+
     I2C_SCL_H;
-    // DelayUs(1);
     while (HAL_GPIO_ReadPin(CCC_I2C_SDA))
     {
         if (++ucErrTime > 250) //等待超时
@@ -213,13 +223,16 @@ static uint8_t CCC_I2C_ReadByte(void)
 
     for (R_Count = 8; R_Count > 0; R_Count--)
     {
+        I2C_SCL_L;
+        Delay();
         data <<= 1;
         I2C_SCL_H;
         if (HAL_GPIO_ReadPin(CCC_I2C_SDA))
             data++;
-        I2C_SCL_L;
-        Delay();
     }
+    // NACK();
+    I2C_SCL_L;
+    Delay();
     I2C_SDA_H; //高不应答
 
     SET_I2C_SDA_Out;
@@ -228,11 +241,11 @@ static uint8_t CCC_I2C_ReadByte(void)
     // // GPIOB->PX_PMD |= (GPIO_Mode_OUT_PP << (10 * 2));
     // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_OUT_PP);
     // __set_PRIMASK(0);
-
+    Delay();
     I2C_SCL_H;
     Delay();
     I2C_SCL_L;
-    Delay();
+    // Delay();
     return data;
 }
 

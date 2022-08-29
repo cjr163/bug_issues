@@ -15,7 +15,7 @@ typedef struct
     // u8 TimeShare; //分时
 } SYSTEM_Tick_st;
 extern SYSTEM_Tick_st SysTick_c ;
-
+//extern bool power_on_first;
 void Error_Handler(void);
 
 

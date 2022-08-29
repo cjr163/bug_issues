@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------------
   @Author: ChenJiaRan
   @Date: 2022-06-28 16:11:26
-  @LastEditTime  2022-08-26 11:59
+  @LastEditTime  2022-08-26 15:24
   @LastEditors  ChenJiaRan
   @Description: 智融SW3516H A+C双口 输出100W 输出5A
   @Version: V1.0
@@ -148,47 +148,22 @@ bool sw3516_Change_PD_2(bool force_edit)
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x20);
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x40);
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x80);
-        bool is_c1_deal = false;
-        bool is_c2_deal = false;
-        SW3516H_r0x76_st Connect;
-        if (Switch_Device == SW_IC_1 && Check_Curr.C1_not_break_cc)
-        {
-            Check_Curr.C1_not_break_cc = false;
-            is_c1_deal = true;
-        }
-        else if (Switch_Device == SW_IC_2 && Check_Curr.C2_not_break_cc)
-        {
-            Check_Curr.C2_not_break_cc = false;
-            is_c2_deal = true;
-        }
-        else
-        {
-            Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-            Connect.Prohibit_CC = 1;
-            Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM；
-            CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
-        }
 
-        PD_Config4.Fixed_20V_current = new_0xB4.Fixed_20V_current; //配置的功率参数； // reg &= 0x80;
+        //SW3516H_r0x76_st Connect;
+
+        // Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+        // Connect.Prohibit_CC = 1;
+        // Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM；
+        // CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
+
+        PD_Config4.Fixed_20V_current = new_0xB4.Fixed_20V_current; //配置的功率参数；
         CCC_I2C_WriteReg((u32) & (SW3516H->PD_Config4), PD_Config4.w);
 
-        if (is_c1_deal)
-        {
-            // Check_Curr.C1_not_break_cc = false;
-            set_src_change();
-        }
-        else if (is_c2_deal)
-        {
-            // Check_Curr.C2_not_break_cc = false;
-            set_src_change();
-        }
-        else
-        {
-            Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-            Connect.Prohibit_CC = 0;
-            Connect.Prohibit_BC = 0;
-            CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w); // 恢复 CC 连接以及 DP/DM；
-        }
+        // Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+        // Connect.Prohibit_CC = 0;
+        // Connect.Prohibit_BC = 0;
+        // CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w); // 恢复 CC 连接以及 DP/DM；
+
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x00);
 
         // I2cWrite(sw_Device, (u8) & (SW3516H->I2C_REG_Write), 0x00);
@@ -220,15 +195,22 @@ void sw3516_Change_PD_3(bool force_edit)
     {
         Enable_I2C_Write();
 
-        if (Switch_Device == SW_IC_1 && Check_Curr.C1_not_break_cc)
-            Check_Curr.C1_not_break_cc = false;
-        else if (Switch_Device == SW_IC_2 && Check_Curr.C2_not_break_cc)
-            Check_Curr.C2_not_break_cc = false;
+        // if (Switch_Device == SW_IC_1)
+        // {
+        //         Check_Curr.C1_check_Curr_2S = true;
+        //         Check_Curr.C1_cnt = 0;
+        // }
+        // else
+        // {
+        //         Check_Curr.C2_check_Curr_2S = true;
+        //         Check_Curr.C2_cnt = 0;
+        // }
 
-        PD_Config4.Fixed_20V_current = new_0xB4.Fixed_20V_current; //配置的功率参数； // reg &= 0x80;
+        PD_Config4.Fixed_20V_current = new_0xB4.Fixed_20V_current;
         CCC_I2C_WriteReg((u32) & (SW3516H->PD_Config4), PD_Config4.w);
 
         set_src_change();
+
         HAL_Delay(100);
     }
 }
@@ -291,6 +273,33 @@ void sw3516_Except_PD_V(bool force_edit)
     }
 }
 
+/*
+  @brief    设置C口是否检测空载
+  @param    force_edit  是否不比较直写
+  @return
+*/
+void sw3516_set_PortC_Empty_Check(bool force_edit)
+{
+    SW3516H_r0xBC_st new_0xBC;
+    if (Switch_Device == SW_IC_1)
+        new_0xBC = SW3516_Setting.IC1.u0xBC;
+    else
+        new_0xBC = SW3516_Setting.IC2.u0xBC;
+
+    SW3516H_r0xBC_st FC_Config3;
+    FC_Config3.w = CCC_I2C_ReadReg((u32) & (SW3516H->FC_Config3));
+
+    if (force_edit || FC_Config3.PortC_Empty_Check != new_0xBC.PortC_Empty_Check)
+    {
+        Enable_I2C_Write();
+
+        FC_Config3.PortC_Empty_Check = new_0xBC.PortC_Empty_Check;
+        CCC_I2C_WriteReg((u32) & (SW3516H->FC_Config3), FC_Config3.w);
+
+        HAL_Delay(100);
+        // I2cWrite(sw_Device, (u8) & (SW3516H->I2C_REG_Write), 0x00);
+    }
+}
 /*
   @brief    是否使能SCP
   @param    force_edit  是否不比较直写

@@ -88,7 +88,7 @@ void SysTick_Handler(void)
     HAL_IncTick();
     /* USER CODE BEGIN SysTick_IRQn 1 */
     SysTick_c.Tick1ms = true;
-    if (++SysTick_c.Tick_cnt >= 100) // 100ms
+    if (++SysTick_c.Tick_cnt >= 200) // 100ms
     {
         SysTick_c.Tick_cnt = 0;
         SysTick_c.Tick100ms = true;

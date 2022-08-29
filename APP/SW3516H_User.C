@@ -31,7 +31,7 @@ typedef enum
 } State_enum;
 State_enum Work_mod = {normal}; //根据各口状态切换功率
 
-Check_Curr_st Check_Curr = {0, 0, 0, 0, 0, 0};
+Check_Curr_st Check_Curr = {false, false,  0, 0};
 
 /*
   @brief    主函数
@@ -87,6 +87,8 @@ void init_setting_reg()
     SW3516_Setting.IC1.u0xB8.PPS_Auto_DIS = 1; //补丁
     SW3516_Setting.IC1.u0xB9.SCP_EN = true;
     SW3516_Setting.IC1.u0xBA.EXCEPT_PD_MAX_Vol = EXCEPT_PD_MAX_20V;
+
+    SW3516_Setting.IC1.u0xBC.PortC_Empty_Check = 0;
     SW3516_Setting.IC1.u0xBD.Both_On_Current_Limiting = BOTH_CUR_LIM_2p2A;
     SW3516_Setting.IC1.u0xBD.DPDM_connfig = true;
 
@@ -115,6 +117,8 @@ void init_setting_reg()
     SW3516_Setting.IC2.u0xB8.PPS_Auto_DIS = 1; //补丁
     SW3516_Setting.IC2.u0xB9.SCP_EN = true;
     SW3516_Setting.IC2.u0xBA.EXCEPT_PD_MAX_Vol = EXCEPT_PD_MAX_12V;
+
+    SW3516_Setting.IC2.u0xBC.PortC_Empty_Check = 0;
     SW3516_Setting.IC2.u0xBD.Both_On_Current_Limiting = BOTH_CUR_LIM_2p2A;
     SW3516_Setting.IC2.u0xBD.DPDM_connfig = true;
 
@@ -146,7 +150,8 @@ void init_sw3516()
     sw3516_Except_PD_W(true);
     sw3516_Set_Mode(true);
     sw3516_Change_PD_2(true);
-    HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+    //HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+HAL_Delay(100);
 
     Switch_Device = SW_IC_1;
     SW3516H_Set_PPS(true);
@@ -155,6 +160,7 @@ void init_sw3516()
     sw3516_OpenPDO_20V(true);
     sw3516_Enable__SCP(true);
     sw3516_Both_CUR_LIM(true);
+    sw3516_set_PortC_Empty_Check(true);
 
     Switch_Device = SW_IC_2;
     SW3516H_Set_PPS(true);
@@ -163,7 +169,7 @@ void init_sw3516()
     sw3516_OpenPDO_20V(true);
     sw3516_Enable__SCP(true);
     sw3516_Both_CUR_LIM(true);
-
+    sw3516_set_PortC_Empty_Check(true);
     // sw3516_Init_PDO();
 }
 
@@ -219,6 +225,9 @@ void check_Port()
 
             if (Port_state.C1)
             { // C1插入
+                // if (!Check_Curr.C1_breaking)
+                //     Check_Curr.C1_new_insert = true;
+
                 if (Port_state.C2 || Port_state.A2)
                 { // C2已插入,是否大于16V
                     Switch_Device = SW_IC_2;
@@ -235,10 +244,13 @@ void check_Port()
             }
             else
             { // C1拔出
-                if (Port_state.C2 || Port_state.A2)
-                    Work_mod = SINGLE_C2;
-                else
-                    Work_mod = normal;
+//                if (!Check_Curr.C1_breaking)
+//                {
+                    if (Port_state.C2 || Port_state.A2)
+                        Work_mod = SINGLE_C2;
+                    else
+                        Work_mod = normal;
+//                }
             }
         }
     }
@@ -255,6 +267,9 @@ void check_Port()
 
             if (Port_state.C2)
             { // C2插入
+                // if (!Check_Curr.C2_breaking)
+                //     Check_Curr.C2_new_insert = true;
+
                 if (!Port_state.A2)
                 { //如果A2没插入
                     if (Port_state.C1)
@@ -274,13 +289,16 @@ void check_Port()
             }
             else
             { // C2拔出
-                if (!Port_state.A2)
-                {
-                    if (Port_state.C1)
-                        Work_mod = SINGLE_C1;
-                    else
-                        Work_mod = normal;
-                }
+//                if (!Check_Curr.C2_breaking)
+//                {
+                    if (!Port_state.A2)
+                    {
+                        if (Port_state.C1)
+                            Work_mod = SINGLE_C1;
+                        else
+                            Work_mod = normal;
+                    }
+//                }
             }
         }
     }
@@ -297,6 +315,9 @@ void check_Port()
 
             if (Port_state.A2)
             { // A2插入
+                // if (!Check_Curr.C2_breaking)
+                //     Check_Curr.C2_new_insert = true; // A2与C2共协议?暂不处理
+
                 if (!Port_state.C2)
                 { //如果C2没插入
                     if (Port_state.C1)
@@ -379,6 +400,7 @@ void check_Port()
 */
 void change_Power()
 {
+
     static State_enum Work_mod_BK = normal;
     if (Work_mod_BK != Work_mod)
         Work_mod_BK = Work_mod;
@@ -425,9 +447,9 @@ void change_Power()
         break;
 
     case State_C1_45W__C2_20W:
-        Check_Curr.C1_not_break_cc = true;
-        Check_Curr.C1_check_Curr_2S = true;
-        Check_Curr.C1_cnt = 0;
+        // Check_Curr.C1_not_break_cc = true;
+        // Check_Curr.C1_check_Curr_2S = true;
+        // Check_Curr.C1_cnt = 0;
         SW3516_Setting.IC1.u0xB7.w = 0B01111101;
         SW3516_Setting.IC1.u0xB4.Fixed_20V_current = 45000 / 20 / 50;
         SW3516_Setting.IC1.u0xA6.Power_Watt = OTHER_THAN_PD_45W;
@@ -446,9 +468,9 @@ void change_Power()
         break;
 
     case State_C1_20W__C2_45W:
-        Check_Curr.C2_not_break_cc = true;
-        Check_Curr.C2_check_Curr_2S = true;
-        Check_Curr.C2_cnt = 0;
+        // Check_Curr.C2_not_break_cc = true;
+        // Check_Curr.C2_check_Curr_2S = true;
+        // Check_Curr.C2_cnt = 0;
         SW3516_Setting.IC1.u0xB7.w = 0B01001101;
         SW3516_Setting.IC1.u0xA6.Power_Watt = OTHER_THAN_PD_18W;
         SW3516_Setting.IC1.u0xB4.Fixed_20V_current = 20000 / 20 / 50;
@@ -491,6 +513,26 @@ void change_Power()
         init_setting_reg();
         break;
     }
+
+    //功率改变,2秒后检测电流,除了新插入的
+    static u32 C1_POWER_BK = 0;
+    static u32 C2_POWER_BK = 0;
+
+    if (C1_POWER_BK != SW3516_Setting.IC1.u0xB4.Fixed_20V_current)
+    {
+        C1_POWER_BK = SW3516_Setting.IC1.u0xB4.Fixed_20V_current;
+        //if (!power_on_first)
+            Check_Curr.C1_check_Curr_2S = true;
+             Check_Curr.C1_cnt=0;
+    }
+
+    if (C2_POWER_BK != SW3516_Setting.IC2.u0xB4.Fixed_20V_current)
+    {
+        C2_POWER_BK = SW3516_Setting.IC2.u0xB4.Fixed_20V_current;
+        //if (!power_on_first)
+            Check_Curr.C2_check_Curr_2S = true;
+            Check_Curr.C2_cnt=0;
+    }
 }
 
 /*
@@ -501,28 +543,40 @@ void change_Power()
 void cycle_check()
 {
     Switch_Device = SW_IC_1;
-
     sw3516_Except_PD_W(false);
     sw3516_Set_Mode(false);
-    if (sw3516_Change_PD_2(false))
-        HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+    // if (Check_Curr.C1_new_insert)
+    // {
+    //     if (sw3516_Change_PD_2(false))
+    //         HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+    // }
+    // else
+    sw3516_Change_PD_3(false);
+
     SW3516H_Set_PPS(false);
     sw3516_Set_DMDP(false);
     sw3516_Except_PD_V(false);
     sw3516_OpenPDO_20V(false);
-    sw3516_Enable__SCP(false);
-    sw3516_Both_CUR_LIM(false);
+    //sw3516_Enable__SCP(false);
+    //sw3516_Both_CUR_LIM(false);
+    //sw3516_set_PortC_Empty_Check(false);
 
     Switch_Device = SW_IC_2;
-
     sw3516_Except_PD_W(false);
     sw3516_Set_Mode(false);
-    if (sw3516_Change_PD_2(false))
-        HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+    // if (Check_Curr.C2_new_insert)
+    // {
+    //     if (sw3516_Change_PD_2(false))
+    //         HAL_Delay(800); //并延时 800ms(600ms 及以上)；
+    // }
+    // else
+    sw3516_Change_PD_3(false);
+
     SW3516H_Set_PPS(false);
     sw3516_Set_DMDP(false);
     sw3516_Except_PD_V(false);
     sw3516_OpenPDO_20V(false);
-    sw3516_Enable__SCP(false);
-    sw3516_Both_CUR_LIM(false);
+    //sw3516_Enable__SCP(false);
+    //sw3516_Both_CUR_LIM(false);
+    //sw3516_set_PortC_Empty_Check(false);
 }

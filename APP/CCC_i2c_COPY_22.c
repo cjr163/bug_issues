@@ -17,32 +17,38 @@
 
 static void Set_SDA_In()
 {
-    GPIO_InitTypeDef gpioinitstruct;
-    gpioinitstruct.Pin = GPIO_PIN_4;
-    gpioinitstruct.Mode = GPIO_MODE_INPUT;
-    gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    gpioinitstruct.Pull = GPIO_PULLUP;
-    HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+    // GPIO_InitTypeDef gpioinitstruct;
+    // gpioinitstruct.Pin = GPIO_PIN_4;
+    // gpioinitstruct.Mode = GPIO_MODE_INPUT;
+    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
+    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
+    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
+    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
+    // gpioinitstruct.Pull = GPIO_PULLUP;
+    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+
+    GPIOD->DIRCR &= ~(GPIO_PIN_4);                     // GPIO_MODE_INPUT
+    GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (4 * 2U)); // GPIO_PULLUP
 }
 static void Set_SDA_Out()
 {
-    GPIO_InitTypeDef gpioinitstruct;
-    gpioinitstruct.Pin = GPIO_PIN_4;
-    gpioinitstruct.Mode = GPIO_MODE_OUTPUT;
-    gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    gpioinitstruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+    // GPIO_InitTypeDef gpioinitstruct;
+    // gpioinitstruct.Pin = GPIO_PIN_4;
+    // gpioinitstruct.Mode = GPIO_MODE_OUTPUT;
+    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
+    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
+    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
+    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
+    // gpioinitstruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+
+    GPIOD->DIRCR |= GPIO_PIN_4;                     // GPIO_MODE_INPUT
+    //GPIOD->PUPDR |= GPIO_PUPDR_PxPUPD0 << (2 * 2U); // GPIO_PULLUP 3-1=2
 }
 
 static void Delay()
 {
-    uint32_t delay = 20;//20=100K 5=200k
+    uint32_t delay = 7;//20=100K 5=200k
     while (delay-- > 0)
     {
         __NOP();

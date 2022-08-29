@@ -16,6 +16,7 @@ typedef struct
     SW3516H_r0xB8_st u0xB8; //不禁止pps
     SW3516H_r0xB9_st u0xB9; //快充配置1 (多个协议)
     SW3516H_r0xBA_st u0xBA; //快充配置2 (AFC和else最高电压)
+    SW3516H_r0xBC_st u0xBC; //快充配置3 (空载超载)
     SW3516H_r0xBD_st u0xBD; //限流配置 Current_Limiting
     SW3516H_r0xBE_st u0xBE; // PPS
 
@@ -39,14 +40,21 @@ extern Device_enum Switch_Device;
 
 typedef struct
 {
-    bool C1_not_break_cc : 1;  //不断CC
+    // bool C1_new_insert : 1; //新插入的不检测小电流
+    // bool C2_new_insert : 1; //新插入的不检测小电流
+
+    // bool C1_breaking : 1; //断CC中,非手动插入 2秒
+    // bool C2_breaking : 1; //断CC中,非手动插入 2秒
+
     bool C1_check_Curr_2S : 1; // 2秒后查电流
-    bool C2_not_break_cc : 1;  //不断CC
     bool C2_check_Curr_2S : 1; // 2秒后查电流
-    u32 C1_cnt ;
-    u32 C2_cnt ;
+    u32 C1_cnt;
+    u32 C2_cnt;
+
+    // u32 C1_break_cnt;//断CC2秒内不检测新插入 或模式变更
+    // u32 C2_break_cnt;//断CC2秒内不检测新插入 或模式变更
 } Check_Curr_st;
-extern Check_Curr_st Check_Curr ;
+extern Check_Curr_st Check_Curr;
 
 void init_sw3516();
 void check_Port();
