@@ -9,7 +9,7 @@
 
 typedef struct
 {
-    u8 Tick_cnt; //计数
+    u32 Tick_cnt; //计数
     bool Tick1ms;
     bool Tick100ms;
     // u8 TimeShare; //分时

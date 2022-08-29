@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------------------------
   @Author: ChenJiaRan
   @Date: 2022-06-28 16:11:26
-  @LastEditTime  2022-08-26 15:24
+  @LastEditTime  2022-08-29 11:39
   @LastEditors  ChenJiaRan
   @Description: 智融SW3516H A+C双口 输出100W 输出5A
   @Version: V1.0
@@ -149,7 +149,7 @@ bool sw3516_Change_PD_2(bool force_edit)
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x40);
         // CCC_I2C_WriteReg((u32) & (SW3516H->Power_REG_Write), 0x80);
 
-        //SW3516H_r0x76_st Connect;
+        // SW3516H_r0x76_st Connect;
 
         // Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
         // Connect.Prohibit_CC = 1;
@@ -693,19 +693,6 @@ void sw3516_OFF_CC()
 //     HAL_Delay(200);
 // }
 
-typedef enum
-{
-    Samsung_none_port = 0,   //无插入
-    Samsung_single_port = 1, //单口
-    Samsung_double_port = 2  //双口
-} Samsung_state_enum;
-typedef struct
-{
-    u8 ss_db_cnt; //消抖计数
-    Samsung_state_enum state;
-} Samsung_st;
-Samsung_st Samsung = {0, Samsung_none_port}; //三星插入检测
-
 /*
   @brief    AC同时插入重启CC 适应三星快充
   @param
@@ -713,6 +700,15 @@ Samsung_st Samsung = {0, Samsung_none_port}; //三星插入检测
 */
 void check_Samsung()
 {
+    typedef enum
+    {
+        Samsung_none_port = 0,   //无插入
+        Samsung_single_port = 1, //单口
+        Samsung_double_port = 2  //双口
+    } Samsung_state_enum;
+    static Samsung_state_enum Samsung_check = Samsung_none_port; //三星插入检测
+    static u32 cnt = 0;
+
     // C2存在但A2不存在,检测大于20mA时插入A口,重启CC限流
     Switch_Device = SW_IC_2;
 
@@ -722,29 +718,29 @@ void check_Samsung()
     SW3516H_r0x08_st System_state1;
     System_state1.w = CCC_I2C_ReadReg((u32) & (SW3516H->System_state1));
 
-    switch (Samsung.state)
+    switch (Samsung_check)
     {
     case Samsung_none_port:
         //无插入
         if (System_state1.Device_Exists == AC_ONLY_C || System_state1.Device_Exists == AC_ONLY_A)
         {
-            if (++Samsung.ss_db_cnt >= 2)
+            if (++cnt >= 2)
             {
-                Samsung.ss_db_cnt = 0;
-                Samsung.state = Samsung_single_port;
+                cnt = 0;
+                Samsung_check = Samsung_single_port;
             }
         }
         else
-            Samsung.ss_db_cnt = 0;
+            cnt = 0;
 
         break;
     case Samsung_single_port:
         //单口检测变两口插入
         if (System_state1.Device_Exists == AC_BOTH)
         {
-            if (++Samsung.ss_db_cnt >= 2)
+            if (++cnt >= 2)
             {
-                Samsung.ss_db_cnt = 0;
+                cnt = 0;
 
                 sw3516_set_ADC_Source(adc_iout1);
 
@@ -758,15 +754,15 @@ void check_Samsung()
                     sw3516_Set_DMDP(true);
                 }
                 HAL_Delay(800); //并延时 800ms(600ms 及以上)；
-                Samsung.state = Samsung_double_port;
+                Samsung_check = Samsung_double_port;
             }
         }
         else
-            Samsung.ss_db_cnt = 0;
+            cnt = 0;
 
         if (System_state1.Device_Exists == AC_NONE)
         {
-            Samsung.state = Samsung_none_port;
+            Samsung_check = Samsung_none_port;
         }
 
         break;
@@ -774,18 +770,18 @@ void check_Samsung()
         //双口检测拔出
         if (System_state1.Device_Exists != AC_BOTH)
         {
-            if (++Samsung.ss_db_cnt >= 2)
+            if (++cnt >= 2)
             {
-                Samsung.ss_db_cnt = 0;
+                cnt = 0;
 
                 SW3516_Setting.IC2.u0xBD.DPDM_connfig = true;
                 sw3516_Set_DMDP(true);
                 HAL_Delay(800); //并延时 800ms(600ms 及以上)；
-                Samsung.state = Samsung_none_port;
+                Samsung_check = Samsung_none_port;
             }
         }
         else
-            Samsung.ss_db_cnt = 0;
+            cnt = 0;
 
         break;
     default:

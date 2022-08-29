@@ -2,7 +2,7 @@
   @Author  jamie 2899987@qq.com
   @Date  2022-08-23 09:31
   @LastEditors  ChenJiaRan
-  @LastEditTime  2022-08-29 09:41
+  @LastEditTime  2022-08-29 11:42
   @Description   项目:821008 两C一A 上电20V CS32L010+SW3516P+SW3516P 注意P版本不能单独设置A口功率
   @Version  V1.0
   @Note
@@ -64,7 +64,7 @@ void LED_IO_Init()
     /* Reset PIN to switch off the LED */
     HAL_GPIO_WritePin(GPIOC, GPIO_PIN_5, GPIO_PIN_RESET);
 }
-// u32 tttt;
+
 /*
  * @brief  The application entry point.
  * @retval int
@@ -84,22 +84,11 @@ int main(void)
 
     Switch_Device = SW_IC_1;
     CCC_I2C_ReadReg((u32) & (SW3516H->Chip_ver)); //可以先读一下版本，SW未准备好会卡在这
-
-    // tttt = CCC_I2C_ReadReg((u32) & (SW3516H->FC_Config3)); //可以先读一下版本，SW未准备好会卡在这
-
     Switch_Device = SW_IC_2;
     CCC_I2C_ReadReg((u32) & (SW3516H->Chip_ver)); //可以先读一下版本，SW未准备好会卡在这
 
-    // power_on_first = true;
-    //  while (1)
-    //  {
-    //  }
-    //  Check_Curr.C1_breaking=true;
-    //  Check_Curr.C1_break_cnt=0;
-    //  Check_Curr.C2_breaking=true;
-    //  Check_Curr.C2_break_cnt=0;
     init_sw3516();
-//    static u8 FZ_Time = 0;
+
     while (1)
     {
         // M0没有位操作区 不支持位
@@ -113,153 +102,85 @@ int main(void)
         if (SysTick_c.Tick1ms)
         {
             SysTick_c.Tick1ms = false;
+        }
 
-            if (SysTick_c.Tick100ms) // 100ms
+        if (SysTick_c.Tick100ms) // 300ms
+        {
+            SysTick_c.Tick100ms = false;
+
+            check_Samsung();
+
+            Switch_Device = SW_IC_1;
+            Enable_I2C_Write();
+            Switch_Device = SW_IC_2;
+            Enable_I2C_Write();
+
+            check_Port();
+            change_Power();
+
+            cycle_check(); // 周期检查芯片值是否正常
+
+            if (Check_Curr.C1_check_Curr_2S)
             {
-                SysTick_c.Tick100ms = false;
-
-
-                Switch_Device = SW_IC_1;
-                Enable_I2C_Write();
-                Switch_Device = SW_IC_2;
-                Enable_I2C_Write();
-
-
-                check_Samsung();
-
-                check_Port();
-                change_Power();
-
-                cycle_check(); // 周期检查芯片值是否正常
-
-                if (Check_Curr.C1_check_Curr_2S)
+                if (++Check_Curr.C1_cnt > 10) //三秒
                 {
-                    if (++Check_Curr.C1_cnt > 30) //三秒
+                    Check_Curr.C1_cnt = 0;
+                    Check_Curr.C1_check_Curr_2S = false;
+
+                    Switch_Device = SW_IC_1;
+                    Enable_I2C_Write();
+                    sw3516_set_ADC_Source(adc_iout1);
+                    u32 AD_I = sw3516_Read_AD_Value(); //读输出电流
+                    AD_I *= 5;
+                    AD_I >>= 1;
+                    if (AD_I < 100)
                     {
-                        Check_Curr.C1_cnt = 0;
-                        Check_Curr.C1_check_Curr_2S = false;
-
-                        // if (Check_Curr.C1_new_insert)
-                        //     Check_Curr.C1_new_insert = false;
-                        // else
-                        // {
-//                            Check_Curr.C1_breaking = true;
-//                            Check_Curr.C1_break_cnt = 0;
-
-                            Switch_Device = SW_IC_1;
-                            Enable_I2C_Write();
-                            sw3516_set_ADC_Source(adc_iout1);
-                            u32 AD_I = sw3516_Read_AD_Value(); //读输出电流
-                            AD_I *= 5;
-                            AD_I >>= 1;
-                            if (AD_I < 100)
-                            {
-                                SW3516H_r0x76_st Connect;
-                                Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-                                Connect.Prohibit_CC = 1;
-                                Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM
-                                CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
-                                HAL_Delay(800);
-                                // set_src_change();
-                                // sw3516_Change_PD_1();
-                                Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-                                Connect.Prohibit_CC = 0;
-                                Connect.Prohibit_BC = 0; // 恢复 CC 连接以及 DP/DM
-                                CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
-                                HAL_Delay(800);
-                            }
-                        // }
+                        SW3516H_r0x76_st Connect;
+                        Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+                        Connect.Prohibit_CC = 1;
+                        Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM
+                        CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
+                        HAL_Delay(800);
+                        // set_src_change();
+                        // sw3516_Change_PD_1();
+                        Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+                        Connect.Prohibit_CC = 0;
+                        Connect.Prohibit_BC = 0; // 恢复 CC 连接以及 DP/DM
+                        CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
+                        HAL_Delay(800);
                     }
                 }
+            }
 
-                if (Check_Curr.C2_check_Curr_2S)
+            if (Check_Curr.C2_check_Curr_2S)
+            {
+                if (++Check_Curr.C2_cnt > 10) //三秒
                 {
-                    if (++Check_Curr.C2_cnt > 30) //三秒
+                    Check_Curr.C2_cnt = 0;
+                    Check_Curr.C2_check_Curr_2S = false;
+
+                    Switch_Device = SW_IC_2;
+                    Enable_I2C_Write();
+                    sw3516_set_ADC_Source(adc_iout1);
+                    u32 AD_I = sw3516_Read_AD_Value(); //读输出电流
+                    AD_I *= 5;
+                    AD_I >>= 1;
+                    if (AD_I < 100)
                     {
-                        Check_Curr.C2_cnt = 0;
-                        Check_Curr.C2_check_Curr_2S = false;
+                        SW3516H_r0x76_st Connect;
+                        Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+                        Connect.Prohibit_CC = 1;
+                        Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM
+                        CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
+                        HAL_Delay(800);
 
-                        // if (Check_Curr.C2_new_insert)
-                        //     Check_Curr.C2_new_insert = false;
-                        // else
-                        // {
-//                            Check_Curr.C2_breaking = true;
-//                            Check_Curr.C2_break_cnt = 0;
-
-                            Switch_Device = SW_IC_2;
-                            Enable_I2C_Write();
-                            sw3516_set_ADC_Source(adc_iout1);
-                            u32 AD_I = sw3516_Read_AD_Value(); //读输出电流
-                            AD_I *= 5;
-                            AD_I >>= 1;
-                            if (AD_I < 100)
-                            {
-                                SW3516H_r0x76_st Connect;
-                                Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-                                Connect.Prohibit_CC = 1;
-                                Connect.Prohibit_BC = 1; //强制断开 CC 以及 DP/DM
-                                CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
-                                HAL_Delay(800);
-
-                                Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
-                                Connect.Prohibit_CC = 0;
-                                Connect.Prohibit_BC = 0; // 恢复 CC 连接以及 DP/DM
-                                CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
-                                HAL_Delay(800);
-                            }
-                        // }
+                        Connect.w = CCC_I2C_ReadReg((u32) & (SW3516H->Connect));
+                        Connect.Prohibit_CC = 0;
+                        Connect.Prohibit_BC = 0; // 恢复 CC 连接以及 DP/DM
+                        CCC_I2C_WriteReg((u32) & (SW3516H->Connect), Connect.w);
+                        HAL_Delay(800);
                     }
                 }
-//                if (Check_Curr.C1_breaking)
-//                {
-//                    if (++Check_Curr.C1_break_cnt > 30) //三秒
-//                        Check_Curr.C1_breaking = false;
-//                }
-//                if (Check_Curr.C2_breaking)
-//                {
-//                    if (++Check_Curr.C2_break_cnt > 30) //三秒
-//                        Check_Curr.C2_breaking = false;
-//                }
-
-//                switch (FZ_Time++)
-//                {
-//                case 0:
-
-//                    break;
-//                case 1:
-
-//                    break;
-//                case 2:
-
-//                    break;
-
-//                case 3:
-
-//                    break;
-//                case 4:
-
-//                    break;
-
-//                default:
-
-//                    FZ_Time = 0;
-//                    break;
-//                }
-
-                // HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_5); /////////////////测试用,
-
-                ///////////
-
-                // Disable_I2C_Write();
-
-                // tttt = CCC_I2C_ReadReg((u32) & (SW3516H->FC_Config3)); //可以先读一下版本，SW未准备好会卡在这
-
-                // static u32 cnt = 0;
-                // if (power_on_first)
-                // {
-                //     if (++cnt > 50)
-                //         power_on_first = false;
-                // }
             }
         }
     }
@@ -276,7 +197,7 @@ void SystemClock_Config(void)
     //配置为内部高速24M
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HIRC;
     RCC_OscInitStruct.HIRCState = RCC_HIRC_ON;
-    RCC_OscInitStruct.HIRCCalibrationValue = RCC_HIRCCALIBRATION_8M; // RCC_HIRCCALIBRATION_24M;
+    RCC_OscInitStruct.HIRCCalibrationValue = RCC_HIRCCALIBRATION_4M; // RCC_HIRCCALIBRATION_24M;
 
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {

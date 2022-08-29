@@ -1,3 +1,12 @@
+/*--------------------------------------------------------------------------------
+  @Author  jamie 2899987@qq.com
+  @Date  2022-08-29 11:11
+  @LastEditors  ChenJiaRan
+  @LastEditTime  2022-08-29 11:12
+  @Description      极致省电I2C 非标准I2C
+  @Version  V1.0
+  @Note
+--------------------------------------------------------------------------------*/
 #include "all_head.h"
 //-----------------------------------------------
 
@@ -7,53 +16,34 @@
 #define CCC_I2C_SCL GPIOD, GPIO_PIN_3
 #define CCC_I2C_SDA GPIOD, GPIO_PIN_2
 
-#define I2C_SCL_H HAL_GPIO_WritePin(CCC_I2C_SCL, GPIO_PIN_SET)
-#define I2C_SCL_L HAL_GPIO_WritePin(CCC_I2C_SCL, GPIO_PIN_RESET)
-#define I2C_SDA_H HAL_GPIO_WritePin(CCC_I2C_SDA, GPIO_PIN_SET)
-#define I2C_SDA_L HAL_GPIO_WritePin(CCC_I2C_SDA, GPIO_PIN_RESET)
+#define I2C_SCL_H GPIOD->ODSET = GPIO_PIN_3 // HAL_GPIO_WritePin(CCC_I2C_SCL, GPIO_PIN_SET)
+#define I2C_SCL_L GPIOD->ODCLR = GPIO_PIN_3 // HAL_GPIO_WritePin(CCC_I2C_SCL, GPIO_PIN_RESET)
+#define I2C_SDA_H GPIOD->ODSET = GPIO_PIN_2 // HAL_GPIO_WritePin(CCC_I2C_SDA, GPIO_PIN_SET)
+#define I2C_SDA_L GPIOD->ODCLR = GPIO_PIN_2 // HAL_GPIO_WritePin(CCC_I2C_SDA, GPIO_PIN_RESET)
 
-#define SET_I2C_SDA_Out Set_SDA_Out()
-#define SET_I2C_SDA_In Set_SDA_In()
+#define SET_I2C_SDA_Out GPIOD->DIRCR |= GPIO_PIN_2 // Set_SDA_Out()
+#define SET_I2C_SDA_In GPIOD->DIRCR &= ~(GPIO_PIN_2)
+// GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)) // Set_SDA_In()
 
-static void Set_SDA_In()
-{
-    // GPIO_InitTypeDef gpioinitstruct;
-    // gpioinitstruct.Pin = GPIO_PIN_2;
-    // gpioinitstruct.Mode = GPIO_MODE_INPUT;
-    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    // gpioinitstruct.Pull = GPIO_PULLUP;
-    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
+// static void Set_SDA_In()
+// {
+//     GPIOD->DIRCR &= ~(GPIO_PIN_2);                     // GPIO_MODE_INPUT
+//     GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)); // GPIO_PULLUP 3-1=2
+// }
+// static void Set_SDA_Out()
+// {
+//     GPIOD->DIRCR |= GPIO_PIN_2; // GPIO_MODE_INPUT
+//     // GPIOD->PUPDR |= GPIO_PUPDR_PxPUPD0 << (2 * 2U); // GPIO_PULLUP 3-1=2
+// }
 
-    GPIOD->DIRCR &= ~(GPIO_PIN_2);                     // GPIO_MODE_INPUT
-    GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)); // GPIO_PULLUP 3-1=2
-}
-static void Set_SDA_Out()
-{
-    // GPIO_InitTypeDef gpioinitstruct;
-    // gpioinitstruct.Pin = GPIO_PIN_2;
-    // gpioinitstruct.Mode = GPIO_MODE_OUTPUT;
-    // gpioinitstruct.OpenDrain = GPIO_PUSHPULL;
-    // gpioinitstruct.Debounce.Enable = GPIO_DEBOUNCE_DISABLE;
-    // gpioinitstruct.SlewRate = GPIO_SLEW_RATE_HIGH;
-    // gpioinitstruct.DrvStrength = GPIO_DRV_STRENGTH_HIGH;
-    // gpioinitstruct.Pull = GPIO_NOPULL;
-    // HAL_GPIO_Init(GPIOD, &gpioinitstruct);
-
-    GPIOD->DIRCR |= GPIO_PIN_2;                     // GPIO_MODE_INPUT
-    //GPIOD->PUPDR |= GPIO_PUPDR_PxPUPD0 << (2 * 2U); // GPIO_PULLUP 3-1=2
-}
-
-static void Delay()
-{
-    uint32_t delay = 7; // 20=100K 5=200k
-    while (delay-- > 0)
-    {
-        __NOP();
-    }
-}
+// static void Delay()
+// {
+//     uint32_t delay = 7; // 20=100K 5=200k
+//     while (delay-- > 0)
+//     {
+//         __NOP();
+//     }
+// }
 
 /*
   @brief    初始化I2C
@@ -81,22 +71,6 @@ void CCC_I2C_Init(void)
 
     I2C_SCL_H;
     I2C_SDA_H;
-
-    // #define I2C_SCL GPIOA->PX0_DOUT
-    // #define I2C_SDA GPIOB->PX10_DOUT
-    /*
-        另一个m0芯片
-        GCR->PA_L_MFP |= 0xF;        // PA0_SCL
-        GCR->PB_H_MFP |= (0xF << 8); // PB10_SDA
-        GPIOB->PX_PMD |= GPIO_PMD_OUT_OD << 20;
-        GPIOA->PX_PMD |= GPIO_PMD_OUT_OD << 0;
-        GPIOB->PX_DOUT |= (1 << 10);
-        GPIOA->PX_DOUT &= ~(1 << 0);
-        // SDA_OUT;
-        // SCL_OUT;
-        //    SDA_SET1;
-        //    SCL_SET1;
-        */
 }
 
 //===============================================
@@ -105,13 +79,8 @@ void CCC_I2C_Init(void)
 static void CCC_I2C_Start(void)
 {
     I2C_SDA_H;
-    // Delay();
     I2C_SCL_H;
-    Delay();
     I2C_SDA_L;
-    // Delay();
-    // I2C_SCL_L;
-    //  Delay();
 }
 //===============================================
 // I2C协议----结束信号
@@ -120,11 +89,8 @@ static void CCC_I2C_Stop(void)
 {
     I2C_SCL_L;
     I2C_SDA_L;
-    Delay();
     I2C_SCL_H;
-    Delay();
     I2C_SDA_H;
-    // Delay();
 }
 //===============================================
 // I2C协议----写字节
@@ -133,35 +99,22 @@ static void CCC_I2C_WriteByte(uint8_t data)
 {
     uint8_t R_Count;
 
-    // I2C_SDA_H;
     for (R_Count = 8; R_Count > 0; R_Count--)
     {
-        I2C_SCL_L;
+        I2C_SCL_L; //原外
         if ((data & 0x80) != 0)
-            I2C_SDA_H;
+        {
+            I2C_SDA_H; //核
+            I2C_SCL_H; //原外
+        }
         else
-            I2C_SDA_L;
-        // Delay();
-        I2C_SCL_H;
-        // Delay();
-        // I2C_SCL_L;
+        {
+            I2C_SDA_L; //核
+            I2C_SCL_H; //原外
+            // I2C_SDA_H; //省电 //不能!是停止信号
+        }
         data <<= 1;
     }
-    I2C_SDA_H; //省电
-               // __set_PRIMASK(1);
-               // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-               // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
-               // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
-               // __set_PRIMASK(0);
-
-    // I2C_SCL_H;
-    // I2C_SCL_L; /////////////////////////////没读取?不检查应答
-    // I2C_SDA_H;
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_OUT_PP << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_OUT_PP);
-    // __set_PRIMASK(0);
 }
 
 /*
@@ -172,39 +125,25 @@ static void CCC_I2C_WriteByte(uint8_t data)
 */
 static bool CCC_IIC_WaitAck()
 {
-    u8 ucErrTime = 0;
+    //u8 ucErrTime = 0;
 
-    //  Delay();
-    I2C_SCL_L;
-
-    I2C_SDA_H;
+    I2C_SCL_L; //先低再输入,防止停止信号
     SET_I2C_SDA_In;
-
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
-    // __set_PRIMASK(0);
-
-    // Delay();
-
     I2C_SCL_H;
-    while (HAL_GPIO_ReadPin(CCC_I2C_SDA))
-    {
-        if (++ucErrTime > 250) //等待超时
-        {
-            SET_I2C_SDA_Out;
-            return false;
-        }
-    }
-    I2C_SCL_L; //时钟输出0
 
+    // while (HAL_GPIO_ReadPin(CCC_I2C_SDA))
+    // {
+    // if (++ucErrTime > 250) //等待超时
+    // }
+    if (GPIOD->IDR & GPIO_PIN_2)
+    {
+        I2C_SCL_L; //时钟拉低,否则停止信号
+        SET_I2C_SDA_Out;
+        return false;
+    }
+
+    I2C_SCL_L; //时钟拉低,否则停止信号, 去掉不能正常通信
     SET_I2C_SDA_Out;
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_OUT_PP << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_OUT_PP);
-    // __set_PRIMASK(0);
     return true;
 }
 
@@ -214,38 +153,21 @@ static bool CCC_IIC_WaitAck()
 static uint8_t CCC_I2C_ReadByte(void)
 {
     uint8_t R_Count, data = 0;
+    I2C_SCL_L; //先低再输入,防止停止信号
     SET_I2C_SDA_In;
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_IN << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_IN);
-    // __set_PRIMASK(0);
 
     for (R_Count = 8; R_Count > 0; R_Count--)
     {
-        I2C_SCL_L;
-        Delay();
         data <<= 1;
         I2C_SCL_H;
-        if (HAL_GPIO_ReadPin(CCC_I2C_SDA))
+        // if (HAL_GPIO_ReadPin(CCC_I2C_SDA))
+        if (GPIOD->IDR & GPIO_PIN_2)
             data++;
+        I2C_SCL_L;
     }
-    // NACK();
-    I2C_SCL_L;
-    Delay();
-    I2C_SDA_H; //高不应答
-
-    SET_I2C_SDA_Out;
-    // __set_PRIMASK(1);
-    // // GPIOB->PX_PMD &= ~(3 << (10 * 2));
-    // // GPIOB->PX_PMD |= (GPIO_Mode_OUT_PP << (10 * 2));
-    // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_OUT_PP);
-    // __set_PRIMASK(0);
-    Delay();
-    I2C_SCL_H;
-    Delay();
-    I2C_SCL_L;
-    // Delay();
+    SET_I2C_SDA_Out; // NACK();
+    I2C_SDA_H;       // NACK();
+    I2C_SCL_H;       //应答位
     return data;
 }
 
