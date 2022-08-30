@@ -1,0 +1,15 @@
+
+##只包含哪些结尾的文件
+##!*.bin
+
+##去除哪些路径
+/KEIL_MDK/
+/Keil/Listings/
+/Keil/Objects/
+/Keil/JLinkLog.txt
+/Keil/EventRecorderStub.scvd
+/Make/Debug/
+/old/
+*.rar
+*.hex
+
