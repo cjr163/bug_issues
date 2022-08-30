@@ -40,25 +40,21 @@ extern Device_enum Switch_Device;
 
 typedef struct
 {
-    // bool C1_new_insert : 1; //新插入的不检测小电流
-    // bool C2_new_insert : 1; //新插入的不检测小电流
-
-    // bool C1_breaking : 1; //断CC中,非手动插入 2秒
-    // bool C2_breaking : 1; //断CC中,非手动插入 2秒
-
     bool C1_check_Curr_2S : 1; // 2秒后查电流
     bool C2_check_Curr_2S : 1; // 2秒后查电流
-    u32 C1_cnt;
-    u32 C2_cnt;
-
-    // u32 C1_break_cnt;//断CC2秒内不检测新插入 或模式变更
-    // u32 C2_break_cnt;//断CC2秒内不检测新插入 或模式变更
+    // u32 C1_cnt;
+    // u32 C2_cnt;
 } Check_Curr_st;
 extern Check_Curr_st Check_Curr;
 
 void init_sw3516();
+
 void check_Port();
 void change_Power();
 void cycle_check();
+
+void Check_Curr_After_3S();
+
+void check_Samsung();
 
 #endif

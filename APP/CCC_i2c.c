@@ -2,7 +2,7 @@
   @Author  jamie 2899987@qq.com
   @Date  2022-08-29 11:11
   @LastEditors  ChenJiaRan
-  @LastEditTime  2022-08-29 11:12
+  @LastEditTime  2022-08-29 17:08
   @Description      极致省电I2C 非标准I2C
   @Version  V1.0
   @Note
@@ -22,8 +22,9 @@
 #define I2C_SDA_L GPIOD->ODCLR = GPIO_PIN_2 // HAL_GPIO_WritePin(CCC_I2C_SDA, GPIO_PIN_RESET)
 
 #define SET_I2C_SDA_Out GPIOD->DIRCR |= GPIO_PIN_2 // Set_SDA_Out()
-#define SET_I2C_SDA_In GPIOD->DIRCR &= ~(GPIO_PIN_2)
-// GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)) // Set_SDA_In()
+#define SET_I2C_SDA_In             \
+    GPIOD->DIRCR &= ~(GPIO_PIN_2); \
+    GPIOD->PUPDR &= ~(GPIO_PUPDR_PxPUPD0 << (2 * 2U)) // Set_SDA_In()
 
 // static void Set_SDA_In()
 // {
@@ -53,7 +54,6 @@
 */
 void CCC_I2C_Init(void)
 {
-
     // GPIO_ModeConfig(CCC_I2C_SCL, GPIO_Mode_OUT_PP); //推挽输出
     // GPIO_ModeConfig(CCC_I2C_SDA, GPIO_Mode_OUT_PP); //推挽输出
     // GPIO_PupdConfig(CCC_I2C_SCL, GPIO_PuPd_UP);
@@ -89,6 +89,7 @@ static void CCC_I2C_Stop(void)
 {
     I2C_SCL_L;
     I2C_SDA_L;
+    //__NOP();//仅测试
     I2C_SCL_H;
     I2C_SDA_H;
 }
@@ -125,7 +126,7 @@ static void CCC_I2C_WriteByte(uint8_t data)
 */
 static bool CCC_IIC_WaitAck()
 {
-    //u8 ucErrTime = 0;
+    // u8 ucErrTime = 0;
 
     I2C_SCL_L; //先低再输入,防止停止信号
     SET_I2C_SDA_In;
@@ -138,11 +139,13 @@ static bool CCC_IIC_WaitAck()
     if (GPIOD->IDR & GPIO_PIN_2)
     {
         I2C_SCL_L; //时钟拉低,否则停止信号
+        I2C_SDA_H; //省电
         SET_I2C_SDA_Out;
         return false;
     }
 
     I2C_SCL_L; //时钟拉低,否则停止信号, 去掉不能正常通信
+    I2C_SDA_H; //省电
     SET_I2C_SDA_Out;
     return true;
 }

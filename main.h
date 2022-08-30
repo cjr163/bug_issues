@@ -18,7 +18,7 @@ extern SYSTEM_Tick_st SysTick_c ;
 //extern bool power_on_first;
 void Error_Handler(void);
 
-
+uint16_t Slide_Average(uint16_t ADVal, uint32_t *pADSum, uint16_t ADAverage);
 
 
 #endif /* __MAIN_H */

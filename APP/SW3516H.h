@@ -1,7 +1,7 @@
 /*================================================================================
   @Author: ChenJiaRan
   @Date: 2022-06-28 15:59:48
-  @LastEditTime  2022-08-26 16:41
+  @LastEditTime  2022-08-29 20:12
   @LastEditors  ChenJiaRan
   @Description: 智融SW3516
   @Version: V1.0
@@ -611,38 +611,35 @@ typedef union
 
 #define SW3516H ((SW3516H_st *)0x1)
 
-void sw3516_Set_Mode(bool force_edit);
+void SW3516H_Set_Mode(bool force_edit);
 
-void sw3516_Change_PD_1();
-bool sw3516_Change_PD_2(bool force_edit);
-void sw3516_Change_PD_3(bool force_edit);
+void SW3516H_HardReset();
+bool SW3516H_Set_20V_PDO_Curr(bool force_edit);
 
-void sw3516_Except_PD_W(bool force_edit);
-void sw3516_Except_PD_V(bool force_edit);
-void sw3516_set_PortC_Empty_Check(bool force_edit);
-void sw3516_Enable__SCP(bool force_edit);
-void sw3516_Both_CUR_LIM(bool force_edit);
+void SW3516H_Except_PD_W(bool force_edit);
+void SW3516H_Except_PD_V(bool force_edit);
+void SW3516H_set_PortC_Empty_Check(bool force_edit);
+void SW3516H_Enable__SCP(bool force_edit);
+void SW3516H_Both_CUR_LIM(bool force_edit);
 
-bool sw3516_Check_Port_C_1();
-bool sw3516_Check_Port_C_2();
-SW3516H_r0x07_st sw3516_Check_Port();
-bool sw3516_Check_Port_A_1();
+bool SW3516H_Check_Port_C_1();
+bool SW3516H_Check_Port_C_2();
+SW3516H_r0x07_st SW3516H_Check_Port();
+bool SW3516H_Check_Port_A_1();
 
-u8 sw3516_Read_AD_Value_H();
-u16 sw3516_Read_AD_Value();
-u16 sw3516_Read_Vin_VOL();
-void sw3516_set_ADC_Source(ADC_SEL_enum ADC_SEL);
-void sw3516_OpenPDO_20V(bool force_edit);
+u8 SW3516H_Read_AD_Value_H();
+u16 SW3516H_Read_AD_Value();
+u16 SW3516H_Read_Vin_VOL();
+void SW3516H_set_ADC_Source(ADC_SEL_enum ADC_SEL);
+void SW3516H_OpenPDO_20V(bool force_edit);
 
 void SW3516H_Set_PPS(bool force_edit);
-// void sw3516_Init_PDO();
+void SW3516H_Set_DMDP(bool force_edit);
 
-void sw3516_OFF_CC();
-void sw3516_Set_DMDP(bool force_edit);
+void SW3516H_src_change();
+void SW3516H_Disconnect_CC();
 
-void Enable_I2C_Write();
-void Disable_I2C_Write();
+void SW3516H_Enable_I2C_Write();
+void SW3516H_Disable_I2C_Write();
 
-void check_Samsung();
-void set_src_change();
 #endif

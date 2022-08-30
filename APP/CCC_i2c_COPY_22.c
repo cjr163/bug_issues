@@ -1,3 +1,12 @@
+/*--------------------------------------------------------------------------------
+  @Author  jamie 2899987@qq.com
+  @Date  2022-08-29 11:11
+  @LastEditors  ChenJiaRan
+  @LastEditTime  2022-08-29 17:08
+  @Description      极致省电I2C 非标准I2C
+  @Version  V1.0
+  @Note
+--------------------------------------------------------------------------------*/
 #include "all_head.h"
 //-----------------------------------------------
 
@@ -106,11 +115,13 @@ static bool CCC_IIC_WaitAck()
     if (GPIOD->IDR & GPIO_PIN_4)
     {
         I2C_SCL_L; //时钟拉低,否则停止信号
+        I2C_SDA_H; //省电
         SET_I2C_SDA_Out;
         return false;
     }
 
     I2C_SCL_L; //时钟拉低,否则停止信号, 去掉不能正常通信
+    I2C_SDA_H; //省电
     SET_I2C_SDA_Out;
     return true;
 }
